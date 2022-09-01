@@ -1,3 +1,4 @@
+#pragma once
 /* source/constant.h: global constants used by Moria
 
    Copyright (C) 1989-2008 James E. Wilson, Robert A. Koeneke, 
@@ -247,11 +248,7 @@ some of the system defines set up there.
 #undef CTRL
 #define CTRL(x)		(x & 0x1F)
 #define DELETE		0x7f
-#ifdef VMS
-#define ESCAPE        '\032'	/* Use CTRL-Z instead of ESCAPE.  */
-#else
 #define ESCAPE	      '\033'	/* ESCAPE character -CJS-  */
-#endif
 
 /* This used to be NULL, but that was technically incorrect.  CNIL is used
    instead of null to help avoid lint errors.  */
@@ -621,3 +618,5 @@ some of the system defines set up there.
 
 /* Number of entries allowed in the scorefile.  */
 #define SCOREFILE_SIZE	1000
+
+#define BESTIARY 0
