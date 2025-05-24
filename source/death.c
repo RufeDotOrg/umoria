@@ -23,12 +23,8 @@ void exit();
 long time();
 static void date(day) char* day;
 {
-  register char* tmp;
-  long clockvar;
-  clockvar = time((long*)0);
-  tmp = ctime(&clockvar);
-  tmp[10] = '\0';
-  (void)strcpy(day, tmp);
+  time_t clockvar = time(0);
+  ctime_r(&clockvar, day);
 }
 /* Centers a string within a 31 character string  	-JWT-	 */
 static char* center_string(centered_str, in_str) char* centered_str;
@@ -192,7 +188,7 @@ print_tomb()
   int ok;
   vtype str, tmp_str;
   register int i;
-  char day[11];
+  char day[32];
   register char* p;
   clear_screen();
   put_buffer("_______________________", 1, 15);

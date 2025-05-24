@@ -1,0 +1,1 @@
+DEV_FLAGS+="-include moria.h -lcurses"
